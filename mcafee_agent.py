@@ -178,7 +178,7 @@ class Build_Registration_Request:
         return self.fullprops_xml
 
     def build_request(self):
-        """Build registration request data"""
+        """Build registration request data """
         self.build_header_2_40()
         self.build_fullprops()
         data_compressed = mcafee_crypto.mcafee_compress(self.agent_pubkey_epo_format + self.fullprops_xml)
